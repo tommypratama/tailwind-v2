@@ -14,7 +14,7 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: ['~/assets/css/tailwind.css'],
+  css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [],
@@ -23,16 +23,29 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
-  buildModules: ['@nuxtjs/color-mode'],
+  buildModules: ['@nuxtjs/color-mode', '@nuxtjs/tailwindcss'],
+
+  tailwindcss: {
+    exposeConfig: true,
+  },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: ['@nuxt/content'],
 
   content: {
     // Disable for security reason on CodeSandBox
-    liveEdit: false
+    liveEdit: false,
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
+
+  colorMode: {
+    fallback: 'light', // fallback value if not system preference found
+    hid: 'nuxt-color-mode-script',
+    globalName: '__NUXT_COLOR_MODE__',
+    classPrefix: '',
+    classSuffix: '',
+    storageKey: 'nuxt-color-mode',
+  },
 }

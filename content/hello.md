@@ -1,4 +1,6 @@
-
+---
+title: Nuxt Content + TailwindCSS Typography
+---
 
 <p className="lead">
   Until now, trying to style an article, document, or blog post with Tailwind has been a tedious
