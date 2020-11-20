@@ -2,38 +2,37 @@
   <div
     class="px-4 py-10 max-w-3xl mx-auto sm:px-6 sm:py-12 lg:max-w-4xl lg:py-16 lg:px-8 xl:max-w-6xl"
   >
-    <article>
-      <h1 class="sr-only">Nuxt + Tailwind CSS Typography</h1>
-      <div class="space-y-10 sm:space-y-12 lg:space-y-20 xl:space-y-24">
-        <div
-          class="space-y-10 sm:space-y-0 sm:flex sm:items-center sm:justify-between"
-        >
-          <div class="text-4xl font-bold">The dark night mode</div>
+    <h1 class="sr-only">Nuxt + Tailwind CSS Typography</h1>
+    <div class="space-y-10 sm:space-y-12 lg:space-y-20 xl:space-y-24">
+      <header class="flex justify-between items-center">
+        <div v-if="this.$colorMode.preference == 'dark'" class="text-2xl md:text-3xl font-bold">Dark mode</div>
+        <div v-else class="text-2xl md:text-3xl font-bold">Light mode</div>
 
-          <div class="ml-10 md:mr-10">
-            <button
-              @click="setCurrentTheme"
-              type="button"
-              class="focus:outline-none"
-            >
-              <icon-sun-off
-                v-if="$colorMode.value === 'light'"
-                class="h-10 text-gray-700"
-              />
-              <icon-sun
-                v-if="$colorMode.value === 'dark'"
-                class="h-10 text-teal-500"
-              />
-            </button>
-          </div>
-
+        <div class="ml-10 md:mr-10">
+          <button
+            @click="setCurrentTheme"
+            type="button"
+            class="focus:outline-none"
+          >
+            <icon-sun-off
+              v-if="$colorMode.value === 'light'"
+              class="h-10 text-gray-700"
+            />
+            <icon-sun
+              v-if="$colorMode.value === 'dark'"
+              class="h-10 text-teal-500"
+            />
+          </button>
         </div>
+      </header>
+
+      <article>
         <NuxtContent
           class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto dark:text-white"
           :document="document"
         />
-      </div>
-    </article>
+      </article>
+    </div>
   </div>
 </template>
 
